@@ -243,3 +243,15 @@ class LoginView(View):
 
         # 7.返回响应
         return response
+
+from django.contrib.auth import logout
+class LogoutView(View):
+
+    def get(self,request):
+        # 1.session数据清除
+        logout(request)
+        # 2.删除部分cookie数据
+        response=redirect(reverse('home:index'))
+        response.delete_cookie('is_login')
+        #3.跳转到首页
+        return response
