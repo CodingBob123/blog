@@ -2,7 +2,7 @@
 from django.urls import path
 from users.views import RegisterView,ImageCodeView
 from users.views import SmsCodeView,LoginView
-from users.views import LogoutView
+from users.views import LogoutView,ForgetPasswordView
 urlpatterns = [
     # path的第一个参数： 路由
     # path的第二个参数： 视图函数名
@@ -19,4 +19,7 @@ urlpatterns = [
 
     #退出登录
     path('logout/',LogoutView.as_view(),name='logout'),
+
+    #忘记密码
+    path('forgetpassword/',ForgetPasswordView.as_view(),name='forgetpassword'),
 ]
