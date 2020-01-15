@@ -383,3 +383,10 @@ class UserCenterView(LoginRequiredMixin,View):
 
         # 5.返回响应
         return response
+
+
+class WriteBlogView(View):
+
+    def get(self,request):
+
+        return render(request,'write_blog.html')
