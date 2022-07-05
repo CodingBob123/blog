@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-#1.导入系统的 logging
+# 1.导入系统的 logging
 import logging
+
 # #2.创建(获取)日志器
 # logger=logging.getLogger('django')
 #
@@ -33,13 +34,14 @@ urlpatterns = [
     # urlconf_module  子应用的路由
     # app_name  子应用的名字
 
-    #namespace 命名空间
-    path('',include(('users.urls','users'),namespace='users')),
+    # namespace 命名空间
+    path('', include(('users.urls', 'users'), namespace='users')),
     # path('',log),
 
-    path('',include(('home.urls','home'),namespace='home')),
+    path('', include(('home.urls', 'home'), namespace='home')),
 ]
 # 图片访问的路由
 from django.conf import settings
 from django.conf.urls.static import static
-urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
